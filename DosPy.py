@@ -9,7 +9,7 @@ elif system() == 'Windows':
     os.system('color a')
 __version__ = '1.1'
 Date_and_time_of_day = 'Time of day : '+time.ctime()
-The_developer_team = 'Arab Python'
+The_developer_team = 'Arab Security'
 banner = """
                              """+__version__ +"""
                              """+Date_and_time_of_day+"""
